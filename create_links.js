@@ -304,7 +304,7 @@ const resultLinks = [];
     const element = await waitForSelectors(
       [
         [
-          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(1) > div:nth-child(2) > div.w-full.flex-1.flex-row.pb-4 > div:nth-child(1) > div.grid-replay.w-full.rounded-lg.px-4 > div > div > div > div > div.flex.w-full.justify-end.p-3.pt-1 > span:nth-child(1) > button',
+          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(1) > div:nth-child(3) > div.w-full.flex-1.flex-row.pb-4 > div:nth-child(1) > div.grid-replay.w-full.rounded-lg.px-4 > div:nth-child(3) > div > div > div > div.flex.w-full.justify-end.p-3.pt-1 > span:nth-child(1) > button',
         ],
       ],
       targetPage
