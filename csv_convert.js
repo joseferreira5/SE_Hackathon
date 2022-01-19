@@ -1,8 +1,9 @@
 const csv = require('csvtojson');
+const fs = require('fs');
 
 (async () => {
   try {
-    const linksData = await csv().fromFile('test.csv');
+    const linksData = await csv().fromFile('SFDC_Example.csv');
     console.log(linksData);
 
     fs.writeFile(

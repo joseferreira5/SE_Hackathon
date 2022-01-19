@@ -1,8 +1,11 @@
 require('dotenv').config();
 const puppeteer = require('puppeteer');
+const linksData = require('./links_data.json');
+
+const resultLinks = [];
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: false, slowMo: 25 });
   const page = await browser.newPage();
 
   async function waitForSelectors(selectors, frame) {
@@ -189,7 +192,7 @@ const puppeteer = require('puppeteer');
   {
     const targetPage = page;
     const element = await waitForSelectors([['#content']], targetPage);
-    await element.click({ offset: { x: 1116, y: 407 } });
+    await element.click();
   }
   {
     const targetPage = page;
@@ -199,7 +202,7 @@ const puppeteer = require('puppeteer');
       [['aria/Next'], ['#submitForm']],
       targetPage
     );
-    await element.click({ offset: { x: 31.90625, y: 22 } });
+    await element.click();
     await Promise.all(promises);
   }
   {
@@ -213,7 +216,7 @@ const puppeteer = require('puppeteer');
       ],
       targetPage
     );
-    await element.click({ offset: { x: 70, y: 17 } });
+    await element.click();
   }
   {
     const targetPage = page;
@@ -253,7 +256,7 @@ const puppeteer = require('puppeteer');
   {
     const targetPage = page;
     const element = await waitForSelectors([['#content']], targetPage);
-    await element.click({ offset: { x: 1214, y: 553 } });
+    await element.click();
   }
   {
     const targetPage = page;
@@ -268,7 +271,7 @@ const puppeteer = require('puppeteer');
       ],
       targetPage
     );
-    await element.click({ offset: { x: 67.109375, y: 26 } });
+    await element.click();
     await Promise.all(promises);
   }
   {
@@ -292,7 +295,7 @@ const puppeteer = require('puppeteer');
       [['aria/Published '], ['#PUBLISHED_TAB']],
       targetPage
     );
-    await element.click({ offset: { x: 40, y: 16 } });
+    await element.click();
   }
   {
     const targetPage = page;
@@ -301,243 +304,239 @@ const puppeteer = require('puppeteer');
     const element = await waitForSelectors(
       [
         [
-          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(1) > div:nth-child(2) > div.w-full.flex-1.flex-row.pb-4 > div:nth-child(1) > div.grid-replay.w-full.rounded-lg.px-4 > div:nth-child(6) > div > div > div > div.flex.w-full.justify-end.p-3.pt-1 > span:nth-child(1) > button > div',
+          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(1) > div:nth-child(2) > div.w-full.flex-1.flex-row.pb-4 > div:nth-child(1) > div.grid-replay.w-full.rounded-lg.px-4 > div > div > div > div > div.flex.w-full.justify-end.p-3.pt-1 > span:nth-child(1) > button',
         ],
       ],
       targetPage
     );
-    await element.click({ offset: { x: 18.984375, y: 5 } });
+    await element.click();
     await Promise.all(promises);
   }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors(
-      [
-        [
-          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div.w-full.h-full.pr-4 > div.w-full.flex-1.flex-row.pb-4 > div > div.flex.justify-between.w-full.text-xl.text-gray-200.font-semibold.py-px20 > div > span > button > div',
-        ],
-      ],
-      targetPage
-    );
-    await element.click({ offset: { x: 15.921875, y: 12 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors(
-      [['aria/Title'], ['#form-elment-1001']],
-      targetPage
-    );
-    await element.click({ offset: { x: 166.671875, y: 14 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors(
-      [['aria/Title'], ['#form-elment-1001']],
-      targetPage
-    );
-    const type = await element.evaluate((el) => el.type);
-    if (
-      [
-        'textarea',
-        'select-one',
-        'text',
-        'url',
-        'tel',
-        'search',
-        'password',
-        'number',
-        'email',
-      ].includes(type)
-    ) {
-      await element.type('Internal 2');
-    } else {
-      await element.focus();
-      await element.evaluate((el, value) => {
-        el.value = value;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }, 'Internal 2');
-    }
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors(
-      [['aria/Description'], ['#form-elment-1002']],
-      targetPage
-    );
-    await element.click({ offset: { x: 76.671875, y: 13 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors(
-      [['aria/Description'], ['#form-elment-1002']],
-      targetPage
-    );
-    const type = await element.evaluate((el) => el.type);
-    if (
-      [
-        'textarea',
-        'select-one',
-        'text',
-        'url',
-        'tel',
-        'search',
-        'password',
-        'number',
-        'email',
-      ].includes(type)
-    ) {
-      await element.type('Description 2');
-    } else {
-      await element.focus();
-      await element.evaluate((el, value) => {
-        el.value = value;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }, 'Description 2');
-    }
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1005']], targetPage);
-    await element.click({ offset: { x: 103.859375, y: 17 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1005']], targetPage);
-    const type = await element.evaluate((el) => el.type);
-    if (
-      [
-        'textarea',
-        'select-one',
-        'text',
-        'url',
-        'tel',
-        'search',
-        'password',
-        'number',
-        'email',
-      ].includes(type)
-    ) {
-      await element.type('company logo 2');
-    } else {
-      await element.focus();
-      await element.evaluate((el, value) => {
-        el.value = value;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }, 'company logo 2');
-    }
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1006']], targetPage);
-    await element.click({ offset: { x: 50.859375, y: 21 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1006']], targetPage);
-    const type = await element.evaluate((el) => el.type);
-    if (
-      [
-        'textarea',
-        'select-one',
-        'text',
-        'url',
-        'tel',
-        'search',
-        'password',
-        'number',
-        'email',
-      ].includes(type)
-    ) {
-      await element.type('cust company 2');
-    } else {
-      await element.focus();
-      await element.evaluate((el, value) => {
-        el.value = value;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }, 'cust company 2');
-    }
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1007']], targetPage);
-    await element.click({ offset: { x: 31.859375, y: 24 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1007']], targetPage);
-    const type = await element.evaluate((el) => el.type);
-    if (
-      [
-        'textarea',
-        'select-one',
-        'text',
-        'url',
-        'tel',
-        'search',
-        'password',
-        'number',
-        'email',
-      ].includes(type)
-    ) {
-      await element.type('user name 2');
-    } else {
-      await element.focus();
-      await element.evaluate((el, value) => {
-        el.value = value;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }, 'user name 2');
-    }
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1008']], targetPage);
-    await element.click({ offset: { x: 50.859375, y: 13 } });
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors([['#form-elment-1008']], targetPage);
-    const type = await element.evaluate((el) => el.type);
-    if (
-      [
-        'textarea',
-        'select-one',
-        'text',
-        'url',
-        'tel',
-        'search',
-        'password',
-        'number',
-        'email',
-      ].includes(type)
-    ) {
-      await element.type('user profile 2');
-    } else {
-      await element.focus();
-      await element.evaluate((el, value) => {
-        el.value = value;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }, 'user profile 2');
-    }
-  }
-  {
-    const targetPage = page;
-    const element = await waitForSelectors(
-      [
-        ['aria/Create Link', 'aria/[role="generic"]'],
-        [
-          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(3) > div > div > div.flex.w-full.flex-row.text-right.justify-end.mt-1 > span:nth-child(2) > button > div',
-        ],
-      ],
-      targetPage
-    );
-    await element.click({ offset: { x: 66.421875, y: 7 } });
-  }
 
+  for (let linkObj of linksData) {
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [
+          [
+            'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div.w-full.h-full.pr-4 > div.w-full.flex-1.flex-row.pb-4 > div > div.flex.justify-between.w-full.text-xl.text-gray-200.font-semibold.py-px20 > div > span > button',
+          ],
+        ],
+        targetPage
+      );
+      await element.click();
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [['aria/Title'], ['#form-elment-1001']],
+        targetPage
+      );
+      const type = await element.evaluate((el) => el.type);
+      if (
+        [
+          'textarea',
+          'select-one',
+          'text',
+          'url',
+          'tel',
+          'search',
+          'password',
+          'number',
+          'email',
+        ].includes(type)
+      ) {
+        await element.type(linkObj.INTERNAL_TITLE);
+      } else {
+        await element.focus();
+        await element.evaluate((el, value) => {
+          el.value = value;
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        }, linkObj.INTERNAL_TITLE);
+      }
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [['aria/Description'], ['#form-elment-1002']],
+        targetPage
+      );
+      const type = await element.evaluate((el) => el.type);
+      if (
+        [
+          'textarea',
+          'select-one',
+          'text',
+          'url',
+          'tel',
+          'search',
+          'password',
+          'number',
+          'email',
+        ].includes(type)
+      ) {
+        await element.type(linkObj.INTERNAL_DESCRIPTION);
+      } else {
+        await element.focus();
+        await element.evaluate((el, value) => {
+          el.value = value;
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        }, linkObj.INTERNAL_DESCRIPTION);
+      }
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [['#form-elment-1005']],
+        targetPage
+      );
+      const type = await element.evaluate((el) => el.type);
+      if (
+        [
+          'textarea',
+          'select-one',
+          'text',
+          'url',
+          'tel',
+          'search',
+          'password',
+          'number',
+          'email',
+        ].includes(type)
+      ) {
+        await element.type(linkObj.COMPANY_LOGO);
+      } else {
+        await element.focus();
+        await element.evaluate((el, value) => {
+          el.value = value;
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        }, linkObj.COMPANY_LOGO);
+      }
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [['#form-elment-1006']],
+        targetPage
+      );
+      const type = await element.evaluate((el) => el.type);
+      if (
+        [
+          'textarea',
+          'select-one',
+          'text',
+          'url',
+          'tel',
+          'search',
+          'password',
+          'number',
+          'email',
+        ].includes(type)
+      ) {
+        await element.type(linkObj.CUST_COMPANY);
+      } else {
+        await element.focus();
+        await element.evaluate((el, value) => {
+          el.value = value;
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        }, linkObj.CUST_COMPANY);
+      }
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [['#form-elment-1007']],
+        targetPage
+      );
+      const type = await element.evaluate((el) => el.type);
+      if (
+        [
+          'textarea',
+          'select-one',
+          'text',
+          'url',
+          'tel',
+          'search',
+          'password',
+          'number',
+          'email',
+        ].includes(type)
+      ) {
+        await element.type(linkObj.USER_NAME);
+      } else {
+        await element.focus();
+        await element.evaluate((el, value) => {
+          el.value = value;
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        }, linkObj.USER_NAME);
+      }
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [['#form-elment-1008']],
+        targetPage
+      );
+      const type = await element.evaluate((el) => el.type);
+      if (
+        [
+          'textarea',
+          'select-one',
+          'text',
+          'url',
+          'tel',
+          'search',
+          'password',
+          'number',
+          'email',
+        ].includes(type)
+      ) {
+        await element.type(linkObj.USER_PROFILE_PIC);
+      } else {
+        await element.focus();
+        await element.evaluate((el, value) => {
+          el.value = value;
+          el.dispatchEvent(new Event('input', { bubbles: true }));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        }, linkObj.USER_PROFILE_PIC);
+      }
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [
+          ['aria/Create Link', 'aria/[role="generic"]'],
+          [
+            'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(3) > div > div > div.flex.w-full.flex-row.text-right.justify-end.mt-1 > span:nth-child(2) > button',
+          ],
+        ],
+        targetPage
+      );
+      await element.click();
+    }
+    {
+      const targetPage = page;
+      const element = await waitForSelectors(
+        [
+          [
+            '#published_replay_links_table > tbody > tr:first-child > td:nth-child(4) > div > div.break-words > a',
+          ],
+        ],
+        targetPage
+      );
+      const elValue = await element.evaluate((el) => el.textContent);
+      await resultLinks.push({
+        linkTitle: linkObj.INTERNAL_TITLE,
+        linkURL: elValue,
+      });
+    }
+    console.log(`${linkObj.INTERNAL_TITLE} was successfully created!`);
+  }
+  console.table(resultLinks);
   await browser.close();
 })();

@@ -1,0 +1,42 @@
+[
+    {
+        "INTERNAL_TITLE": "SFDC Live Demo (Salesforce)",
+        "INTERNAL_DESCRIPTION": "Leave behind for Salesforce",
+        "COMPANY_LOGO": "https://www.vccoastcleanup.org/wp-content/uploads/2018/08/salesforce-logo.jpg",
+        "CUST_COMPANY": "Salesforce",
+        "USER_NAME": "Marc Benioff",
+        "USER_PROFILE_PIC": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRqcww8KDiSdOnPTaBj9sX8XVVRQj_eUusPieCT28a4y1U9ozDW"
+    },
+    {
+        "INTERNAL_TITLE": "SFDC Live Demo (Atlassian)",
+        "INTERNAL_DESCRIPTION": "Leave behind for Atlassian",
+        "COMPANY_LOGO": "https://wac-cdn.atlassian.com/dam/jcr:616e6748-ad8c-48d9-ae93-e49019ed5259/Atlassian-horizontal-blue-rgb.svg",
+        "CUST_COMPANY": "Atlassian",
+        "USER_NAME": "Mike Cannon-Brookes",
+        "USER_PROFILE_PIC": "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQQc8zi3IxuwG0Gl-N-cdgUNCXITg62s7eJ6Yt2xYTQppZ0Dib7ilqqKqRQLHEb"
+    },
+    {
+        "INTERNAL_TITLE": "SFDC Live Demo (Zoom)",
+        "INTERNAL_DESCRIPTION": "Leave behind for Zoom",
+        "COMPANY_LOGO": "https://www.duncanville.com/wp-content/uploads/2021/01/zoom-logo-480x157.png",
+        "CUST_COMPANY": "Zoom",
+        "USER_NAME": "Vishal Garg",
+        "USER_PROFILE_PIC": "https://www.crn.com/resources/0262-108fbf049383-53f7d2be6a59-1000/eric-yuan-zoom.jpg"
+    },
+    {
+        "INTERNAL_TITLE": "SFDC Live Demo (Twilio)",
+        "INTERNAL_DESCRIPTION": "Leave behind for Twilio",
+        "COMPANY_LOGO": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKpm_reuJ34GxvSS18c8nALY4l4HRcaCAZQm-cj2VzSxvvfGEsbWjiuuGfPc-9v1Ff9UM&usqp=CAU",
+        "CUST_COMPANY": "Twilio",
+        "USER_NAME": "Jeff Lawson",
+        "USER_PROFILE_PIC": "https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_1/fcrbsh6ctvicbgurybqz"
+    },
+    {
+        "INTERNAL_TITLE": "SFDC Live Demo (Docusign)",
+        "INTERNAL_DESCRIPTION": "Leave behind for Docusign",
+        "COMPANY_LOGO": "https://www.docusign.com/sites/default/files/docusign_logo_black_text_on_white_0.png",
+        "CUST_COMPANY": "Docusign",
+        "USER_NAME": "Daniel Springer",
+        "USER_PROFILE_PIC": "https://bloximages.newyork1.vip.townnews.com/kmov.com/content/tncms/assets/v3/editorial/8/ed/8edccee2-0433-51ce-a27e-e86d68cd72c1/5f5fac2f3fadb.image.jpg?crop=1176%2C1176%2C293%2C0&resize=1200%2C1200&order=crop%2Cresize"
+    }
+]
