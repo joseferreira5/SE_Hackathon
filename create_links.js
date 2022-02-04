@@ -3,9 +3,10 @@ const puppeteer = require('puppeteer');
 const linksData = require('./links_data.json');
 
 const resultLinks = [];
+const targetReplay = 'SFDC Live Demo (for our champions)';
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false, slowMo: 25 });
+  const browser = await puppeteer.launch({ headless: false, slowMo: 10 });
   const page = await browser.newPage();
 
   async function waitForSelectors(selectors, frame) {
@@ -298,15 +299,12 @@ const resultLinks = [];
     await element.click();
   }
   {
+    // Select replay: data-test-pubreplay-title="SFDC Live Demo (for our champions)"
     const targetPage = page;
     const promises = [];
     promises.push(targetPage.waitForNavigation());
     const element = await waitForSelectors(
-      [
-        [
-          'body > div.bg-gray-900.w-full.h-screen.flex > div.w-full.bg-gray-800.min-h-screen.flex.flex-col.text-grey-200.p-6.overflow-y-auto > div > div:nth-child(1) > div:nth-child(3) > div.w-full.flex-1.flex-row.pb-4 > div:nth-child(1) > div.grid-replay.w-full.rounded-lg.px-4 > div:nth-child(3) > div > div > div > div.flex.w-full.justify-end.p-3.pt-1 > span:nth-child(1) > button',
-        ],
-      ],
+      [[`div[data-test-pubreplay-title="${targetReplay}"] + div + div button`]],
       targetPage
     );
     await element.click();

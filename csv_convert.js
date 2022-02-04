@@ -1,10 +1,10 @@
 const csv = require('csvtojson');
 const fs = require('fs');
+const filePath = process.argv[2];
 
 (async () => {
   try {
-    const linksData = await csv().fromFile('SFDC_Example.csv');
-    console.log(linksData);
+    const linksData = await csv().fromFile(filePath);
 
     fs.writeFile(
       'links_data.json',
@@ -13,7 +13,7 @@ const fs = require('fs');
         if (err) {
           throw err;
         }
-        console.log('JSON array is saved.');
+        console.log('CSV converted successfully!');
       }
     );
   } catch (err) {
